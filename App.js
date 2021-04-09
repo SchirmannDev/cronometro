@@ -5,7 +5,13 @@ export default class cronometro extends Component {
   constructor(props) {
     super(props);
     this.state = { n: 0, botao: "Start" };
+    this.start = this.start.bind(this);
+    this.stop = this.stop.bind(this);
   }
+
+  start() {}
+
+  stop() {}
 
   render() {
     return (
