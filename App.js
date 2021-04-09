@@ -12,10 +12,12 @@ export default class cronometro extends Component {
   }
 
   start() {
+    let s = this.state;
     if (this.timer != null) {
       //parar o timer
       clearInterval(this.timer);
       this.timer = null;
+      s.botao = "Start";
     } else {
       //começar o timer
       this.timer = setInterval(() => {
@@ -23,7 +25,9 @@ export default class cronometro extends Component {
         s.n += 1;
         this.setState(s);
       }, 1000);
+      s.botao = "Stop";
     }
+    this.setState(s);
   }
 
   stop() {
@@ -48,7 +52,7 @@ export default class cronometro extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.botao} onPress={this.stop}>
-            <Text style={styles.botaoText}>Stop</Text>
+            <Text style={styles.botaoText}>Clear</Text>
           </TouchableOpacity>
         </View>
       </View>
