@@ -5,13 +5,37 @@ export default class cronometro extends Component {
   constructor(props) {
     super(props);
     this.state = { n: 0, botao: "Start" };
+    this.timer = null;
+
     this.start = this.start.bind(this);
     this.stop = this.stop.bind(this);
   }
 
-  start() {}
+  start() {
+    if (this.timer != null) {
+      //parar o timer
+      clearInterval(this.timer);
+      this.timer = null;
+    } else {
+      //começar o timer
+      this.timer = setInterval(() => {
+        let s = this.state;
+        s.n += 1;
+        this.setState(s);
+      }, 1000);
+    }
+  }
 
-  stop() {}
+  stop() {
+    if (this.timer != null) {
+      //parar o timer
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+    let s = this.state;
+    s.n = 0;
+    this.setState(s);
+  }
 
   render() {
     return (
