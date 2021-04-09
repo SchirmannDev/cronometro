@@ -2,11 +2,16 @@ import React, { Component } from "react";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 
 export default class cronometro extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { n: 0 };
+  }
+
   render() {
     return (
       <View style={styles.body}>
         <Image source={require("./images/relogio.png")} />
-        <Text style={styles.timer}>0.0</Text>
+        <Text style={styles.timer}>{this.state.n.toFixed(1)}</Text>
         <View style={styles.botaoArea}>
           <TouchableOpacity style={styles.botao}>
             <Text style={styles.botaoText}>VAI</Text>
@@ -50,5 +55,9 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     margin: 20,
   },
-  botaoText: {},
+  botaoText: {
+    fontSize: 17,
+    fontWeight: "bold",
+    color: "#edda7c",
+  },
 });
