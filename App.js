@@ -1,16 +1,22 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { Component } from "react";
+import { StyleSheet, View, Image } from "react-native";
 
-export default function App() {
-  return (
-    <View style={styles.body}>
-      <Text>Hello World Bitches</Text>
-    </View>
-  );
+export default class cronometro extends Component {
+  render() {
+    return (
+      <View style={styles.body}>
+        <Image source={require("./images/relogio.png")} />
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   body: {
     paddingTop: 20,
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ef5c6c",
   },
 });
