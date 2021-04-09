@@ -4,7 +4,7 @@ import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 export default class cronometro extends Component {
   constructor(props) {
     super(props);
-    this.state = { n: 0 };
+    this.state = { n: 0, botao: "Start" };
   }
 
   render() {
@@ -13,12 +13,12 @@ export default class cronometro extends Component {
         <Image source={require("./images/relogio.png")} />
         <Text style={styles.timer}>{this.state.n.toFixed(1)}</Text>
         <View style={styles.botaoArea}>
-          <TouchableOpacity style={styles.botao}>
-            <Text style={styles.botaoText}>VAI</Text>
+          <TouchableOpacity style={styles.botao} onPress={this.start}>
+            <Text style={styles.botaoText}>{this.state.botao}</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.botao}>
-            <Text style={styles.botaoText}>PARAR</Text>
+          <TouchableOpacity style={styles.botao} onPress={this.stop}>
+            <Text style={styles.botaoText}>Stop</Text>
           </TouchableOpacity>
         </View>
       </View>
